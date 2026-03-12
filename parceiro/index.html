@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel do Parceiro | Matrip</title>
+
+  <link rel="stylesheet" href="../../css/parceiro/layout.css" />
+  <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
+  <link rel="stylesheet" href="../../css/parceiro/home.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip" class="brand-logo" />
+          <div class="brand-text">
+            <h2>Matrip</h2>
+            <p>Parceiro</p>
+          </div>
+        </div>
+
+        <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+          &times;
+        </button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="index.html" class="menu-item active">
+          <span>🏠</span>
+          <span>Home</span>
+        </a>
+
+                <a href="minha-agencia.html" class="menu-item">
+            <span>🏢</span>
+            <span>Minha Agência</span>
+            </a>
+
+            <a href="meus-passeios.html" class="menu-item">
+            <span>🧳</span>
+            <span>Meus Passeios</span>
+            </a>
+
+            <a href="valores.html" class="menu-item">
+            <span>💰</span>
+            <span>Valores</span>
+            </a>
+
+          <a href="imagens.html" class="menu-item">
+         <span>🖼️</span>
+         <span>Imagens</span>
+        </a>
+
+            <a href="servicos.html" class="menu-item">
+            <span>🧾</span>
+            <span>Serviços</span>
+            </a>
+
+            <a href="perfil.html" class="menu-item">
+            <span>👤</span>
+             <span>Perfil</span>
+            </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="partner-info">
+          <strong>Parceiro logado</strong>
+          <small>agencia@matrip.com</small>
+        </div>
+
+        <button class="logout-btn">Sair</button>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+          ☰
+        </button>
+
+        <div class="topbar-title">
+          <h1>Home do Parceiro</h1>
+          <p>Gerencie seus passeios, valores e dados da sua agência.</p>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="cards-grid">
+          <div class="info-card">
+            <h3>Meus Passeios</h3>
+            <p class="card-number">08</p>
+            <span>cadastros ativos</span>
+          </div>
+
+          <div class="info-card">
+            <h3>Imagens</h3>
+            <p class="card-number">24</p>
+            <span>fotos cadastradas</span>
+          </div>
+
+          <div class="info-card">
+            <h3>Serviços</h3>
+            <p class="card-number">05</p>
+            <span>extras vinculados</span>
+          </div>
+
+          <div class="info-card">
+            <h3>Valores pendentes</h3>
+            <p class="card-number">02</p>
+            <span>itens para revisar</span>
+          </div>
+        </section>
+
+        <section class="panel-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Atalhos rápidos</h2>
+            </div>
+
+            <div class="quick-actions">
+              <a href="#" class="action-btn">Cadastrar passeio</a>
+              <a href="#" class="action-btn">Atualizar valores</a>
+              <a href="#" class="action-btn">Enviar imagens</a>
+              <a href="#" class="action-btn">Editar agência</a>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Últimas atualizações</h2>
+            </div>
+
+            <ul class="updates-list">
+              <li>Passeio “Lençóis Maranhenses” atualizado</li>
+              <li>Nova imagem adicionada ao passeio “Centro Histórico”</li>
+              <li>Valor do passeio “Chapada das Mesas” revisado</li>
+              <li>Serviço extra “Translado” cadastrado</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Resumo operacional</h2>
+          </div>
+
+          <div class="summary-table-wrapper">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th>Passeio</th>
+                  <th>Status</th>
+                  <th>Adulto</th>
+                  <th>Estudante</th>
+                  <th>Criança</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Passeio de Barco no Rio Tocantins</td>
+                  <td><span class="status-badge active">Ativo</span></td>
+                  <td>R$ 340,00</td>
+                  <td>R$ 280,00</td>
+                  <td>R$ 210,00</td>
+                </tr>
+                <tr>
+                  <td>Chapada das Mesas</td>
+                  <td><span class="status-badge active">Ativo</span></td>
+                  <td>R$ 420,00</td>
+                  <td>R$ 350,00</td>
+                  <td>R$ 280,00</td>
+                </tr>
+                <tr>
+                  <td>Centro Histórico</td>
+                  <td><span class="status-badge inactive">Revisão</span></td>
+                  <td>R$ 79,90</td>
+                  <td>R$ 59,90</td>
+                  <td>R$ 39,90</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/parceiro/sidebar.js"></script>
+</body>
+</html>

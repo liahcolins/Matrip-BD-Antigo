@@ -1,0 +1,173 @@
+.values-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 200px minmax(280px, 1fr);
+  gap: 16px;
+  flex: 1;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.filter-group input,
+.filter-group select {
+  height: 46px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(17, 197, 182, 0.12);
+}
+
+.secondary-btn {
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.values-metrics {
+  margin-top: 24px;
+}
+
+.message-box {
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin: 24px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.message-box.success {
+  background: rgba(17, 197, 182, 0.12);
+  color: #0d8f83;
+  border: 1px solid rgba(17, 197, 182, 0.2);
+}
+
+.message-box.error {
+  background: rgba(217, 83, 79, 0.12);
+  color: #b13834;
+  border: 1px solid rgba(217, 83, 79, 0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.values-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.values-table th,
+.values-table td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.values-table th {
+  color: var(--color-text-soft);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.values-table td {
+  font-size: 14px;
+}
+
+.passeio-cell {
+  min-width: 260px;
+}
+
+.passeio-cell strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.passeio-cell span {
+  color: var(--color-text-soft);
+  font-size: 13px;
+}
+
+.price-input {
+  width: 110px;
+  height: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.price-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(17, 197, 182, 0.12);
+}
+
+.save-row-btn {
+  height: 42px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.save-row-btn:hover {
+  background: var(--color-primary-dark);
+}
+
+.empty-state {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.empty-state h2 {
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 900px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+}

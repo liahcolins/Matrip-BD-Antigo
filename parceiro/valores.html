@@ -1,0 +1,172 @@
+<!--A ideia dessa tela é ser mais rápida que a de edição completa do passeio.
+ Em vez de abrir cada passeio para ajustar preço, o parceiro vê uma grade 
+ com os principais valores e consegue atualizar diretamente.-->
+
+ 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valores | Matrip</title>
+
+  <link rel="stylesheet" href="../../css/parceiro/layout.css" />
+  <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
+  <link rel="stylesheet" href="../../css/parceiro/valores.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip" class="brand-logo" />
+          <div class="brand-text">
+            <h2>Matrip</h2>
+            <p>Parceiro</p>
+          </div>
+        </div>
+
+        <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+          &times;
+        </button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="index.html" class="menu-item">
+          <span>🏠</span>
+          <span>Home</span>
+        </a>
+
+        <a href="minha-agencia.html" class="menu-item">
+          <span>🏢</span>
+          <span>Minha Agência</span>
+        </a>
+
+        <a href="meus-passeios.html" class="menu-item">
+          <span>🧳</span>
+          <span>Meus Passeios</span>
+        </a>
+
+        <a href="valores.html" class="menu-item active">
+          <span>💰</span>
+          <span>Valores</span>
+        </a>
+
+        <a href="imagens.html" class="menu-item">
+          <span>🖼️</span>
+          <span>Imagens</span>
+        </a>
+
+        <a href="servicos.html" class="menu-item">
+          <span>🧾</span>
+          <span>Serviços</span>
+        </a>
+
+        <a href="perfil.html" class="menu-item">
+          <span>👤</span>
+          <span>Perfil</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="partner-info">
+          <strong>Parceiro logado</strong>
+          <small>agencia@matrip.com</small>
+        </div>
+
+        <button class="logout-btn" type="button">Sair</button>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+          ☰
+        </button>
+
+        <div class="topbar-title">
+          <h1>Valores</h1>
+          <p>Atualize rapidamente os preços dos passeios cadastrados.</p>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel">
+          <div class="values-toolbar">
+            <div class="filters">
+              <div class="filter-group">
+                <label for="filterCategoria">Categoria</label>
+                <select id="filterCategoria">
+                  <option value="">Todas</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="searchPasseio">Buscar passeio</label>
+                <input type="text" id="searchPasseio" placeholder="Nome, cidade ou descrição" />
+              </div>
+            </div>
+
+            <button class="secondary-btn" id="clearFiltersBtn" type="button">Limpar filtros</button>
+          </div>
+        </section>
+
+        <section class="cards-grid values-metrics">
+          <div class="info-card">
+            <h3>Total de passeios</h3>
+            <p class="card-number" id="metricTotal">0</p>
+            <span>itens visíveis</span>
+          </div>
+
+          <div class="info-card">
+            <h3>Preço médio final</h3>
+            <p class="card-number" id="metricPreco">R$ 0,00</p>
+            <span>considerando os filtros</span>
+          </div>
+
+          <div class="info-card">
+            <h3>Maior valor</h3>
+            <p class="card-number" id="metricMaior">R$ 0,00</p>
+            <span>valor final mais alto</span>
+          </div>
+
+          <div class="info-card">
+            <h3>Menor valor</h3>
+            <p class="card-number" id="metricMenor">R$ 0,00</p>
+            <span>valor final mais baixo</span>
+          </div>
+        </section>
+
+        <div id="messageBox" class="message-box hidden"></div>
+
+        <section class="panel">
+          <div class="table-wrapper">
+            <table class="values-table">
+              <thead>
+                <tr>
+                  <th>Passeio</th>
+                  <th>Categoria</th>
+                  <th>Adulto</th>
+                  <th>Estudante</th>
+                  <th>Criança</th>
+                  <th>Final</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody id="valuesTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel empty-state hidden" id="emptyState">
+          <h2>Nenhum passeio encontrado</h2>
+          <p>Revise os filtros ou cadastre novos passeios.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/parceiro/sidebar.js"></script>
+  <script src="../../js/parceiro/valores.js"></script>
+</body>
+</html>
