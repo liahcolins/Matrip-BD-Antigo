@@ -31,15 +31,62 @@ form.addEventListener("submit", async (e) => {
     localStorage.setItem("usuario", JSON.stringify(dados));
     localStorage.setItem("tipo", dados.tipo);
 
-    // 🔁 REDIRECT APÓS LOGIN (corrigido)
-    const redirect = localStorage.getItem("redirectAfterLogin");
 
-    if (redirect) {
-      localStorage.removeItem("redirectAfterLogin");
-      window.location.href = redirect;
-    } else {
-      window.location.href = "/paginas/dashboard.html";
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+    // 🔁 REDIRECT APÓS LOGIN (corrigido)
+    // 🔁 REDIRECIONAMENTO POR TIPO DE USUÁRIO
+    // Temporariamente, usuários do tipo "guia" acessarão o dashboard do parceiro.
+    // Isso será revisado caso o professor aprove um tipo específico "parceiro" no banco.
+const redirect = localStorage.getItem("redirectAfterLogin");
+
+if (redirect) {
+  localStorage.removeItem("redirectAfterLogin");
+  window.location.href = redirect;
+} else {
+
+  const tipo = (dados.tipo || "").toLowerCase();
+
+  if (tipo === "admin") {
+    window.location.href = "/paginas/admin/index.html";
+    return;
+  }
+
+  // TEMPORÁRIO: guia acessa painel parceiro
+  if (tipo === "guia") {
+    window.location.href = "/paginas/parceiro/index.html";
+    return;
+  }
+
+  // usuário comum (turista)
+  window.location.href = "/index.html";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   } catch (error) {
     console.error(error);
