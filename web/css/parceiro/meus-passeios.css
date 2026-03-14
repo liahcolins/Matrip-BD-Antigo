@@ -1,0 +1,260 @@
+.page-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 180px 220px minmax(260px, 1fr);
+  gap: 16px;
+  flex: 1;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.filter-group input,
+.filter-group select {
+  height: 46px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(17, 197, 182, 0.12);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.secondary-btn,
+.primary-link-btn {
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text);
+}
+
+.primary-link-btn {
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.primary-link-btn:hover {
+  background: var(--color-primary-dark);
+}
+
+.metrics-grid {
+  margin-top: 24px;
+}
+
+.message-box {
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin: 24px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.message-box.error {
+  background: rgba(217, 83, 79, 0.12);
+  color: #b13834;
+  border: 1px solid rgba(217, 83, 79, 0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+.passeios-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.passeio-card {
+  background: var(--color-surface);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+}
+
+.passeio-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: #e8eef0;
+}
+
+.passeio-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.passeio-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.passeio-title {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.passeio-category {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(17, 197, 182, 0.12);
+  color: var(--color-primary-dark);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.passeio-location {
+  color: var(--color-text-soft);
+  font-size: 14px;
+}
+
+.passeio-description {
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.55;
+  min-height: 66px;
+}
+
+.passeio-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.meta-item {
+  background: #f8fafb;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.meta-item span {
+  display: block;
+  font-size: 12px;
+  color: var(--color-text-soft);
+  margin-bottom: 6px;
+}
+
+.meta-item strong {
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.passeio-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.card-btn {
+  flex: 1;
+  height: 42px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.card-btn.primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.card-btn.secondary {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.empty-state {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.empty-state h2 {
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 1200px) {
+  .passeios-grid {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+
+  .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter-search {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .passeios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .passeio-meta {
+    grid-template-columns: 1fr;
+  }
+}

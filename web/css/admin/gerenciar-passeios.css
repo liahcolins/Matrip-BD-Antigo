@@ -1,0 +1,130 @@
+/* Container da Lista de Passeios */
+.passeios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Item da Lista (Linha única) */
+.list-item {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.list-item-header {
+  padding: 15px 20px;
+  display: grid;
+  /* Colunas: Imagem, Título/Categoria, Cidade, Preço, Ícone */
+  grid-template-columns: 60px 1fr 180px 140px 40px;
+  align-items: center;
+  cursor: pointer;
+  gap: 15px;
+}
+
+.list-item-header:hover {
+  background-color: #f8fafc;
+}
+
+.mini-thumb {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.list-item-header h4 {
+  margin: 0;
+  color: #023847;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.list-item-header small {
+  display: block;
+  color: #64748b;
+}
+
+/* Parte que abre (Detalhes) */
+.list-item-details {
+  display: none; 
+  padding: 25px;
+  border-top: 1px solid #f1f5f9;
+  background: #fcfdfe;
+  animation: slideDown 0.3s ease-out;
+}
+
+.list-item.active .list-item-details {
+  display: block;
+}
+
+.list-item.active {
+  border-color: #11c5b6;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 30px;
+}
+
+.details-img-large {
+  width: 100%;
+  max-height: 250px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Animação suave ao abrir */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 1. Força a altura igual para todos os inputs e selects da linha */
+.filter-group select, 
+.filter-group input, 
+.search-wrapper {
+  height: 45px !important; /* Altura padrão */
+  box-sizing: border-box;
+}
+
+/* 2. Estilo da caixinha de busca */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden; /* Corta o botão para ele ficar arredondado junto com a borda */
+  padding-left: 10px;
+}
+
+.search-wrapper input {
+  border: none !important;
+  outline: none !important;
+  flex: 1;
+  background: transparent;
+}
+
+/* 3. Estilo do botão de Lupa */
+.search-btn {
+  background-color: #023847;
+  color: white;
+  border: none;
+  height: 100%;
+  width: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.search-btn:hover {
+  background-color: #0fa99b;
+}

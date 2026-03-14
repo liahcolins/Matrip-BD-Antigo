@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciar Usuários | Matrip Admin</title>
+
+  <link rel="stylesheet" href="../../css/parceiro/layout.css" />
+  <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
+  <link rel="stylesheet" href="../../css/admin/index.css" />
+</head>
+
+<body>
+  <header class="admin-header">
+    <div class="logo">
+      <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip">
+      <span class="slogan">Seu guia de experiências turísticas</span>
+    </div>
+
+    <div class="actions">
+      <div class="lang">
+        <img src="https://flagcdn.com/w40/br.png" alt="Português (BR)">
+      </div>
+      <div class="sep"></div>
+      <div class="account">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        Perfil: Administrador
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip" class="brand-logo" />
+          <div class="brand-text">
+            <h2>Matrip</h2>
+            <p>Administrador</p>
+          </div>
+        </div>
+        <button class="sidebar-close" id="sidebarClose">&times;</button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="index.html" class="menu-item"><span>🏠</span><span>Home</span></a>
+        
+        <a href="gerenciar-usuarios.html" class="menu-item active"><span>👥</span><span>Gerenciar Usuários</span></a>
+        
+        <a href="gerenciar-guias.html" class="menu-item"><span>🧭</span><span>Gerenciar Guias</span></a>
+        
+        <a href="gerenciar-passeios.html" class="menu-item"><span>🧳</span><span>Gerenciar Passeios</span></a>
+        
+        <a href="gerenciar-agencias.html" class="menu-item"><span>🏢</span><span>Gerenciar Agências</span></a>
+        
+        <a href="cadastrar-agencias.html" class="menu-item"><span>📝</span><span>Cadastrar Agências</span></a>
+        
+        <a href="financeiro.html" class="menu-item"><span>💰</span><span>Financeiro</span></a>
+        <a href="suporte.html" class="menu-item"><span>🛠️</span><span>Suporte</span></a>
+        <a href="configuracoes.html" class="menu-item"><span>⚙️</span><span>Configurações</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="partner-info">
+          <strong>Admin logado</strong>
+          <small id="adminEmail">admin@matrip.com</small>
+        </div>
+        <button class="logout-btn" id="logoutBtn">Sair</button>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="topbar-title">
+          <h1>Gerenciamento de Usuários</h1>
+          <p>Visualize detalhes, edite informações e controle o status de acesso dos membros.</p>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="cards-grid">
+          <div class="info-card">
+            <h3>Total de Usuários</h3>
+            <p class="card-number">1.250</p>
+            <span>cadastrados na base</span>
+          </div>
+          <div class="info-card">
+            <h3>Novos (Mês)</h3>
+            <p class="card-number">85</p>
+            <span>cadastros em Março</span>
+          </div>
+          <div class="info-card">
+            <h3>Ativos Agora</h3>
+            <p class="card-number">14</p>
+            <span>usuários online</span>
+          </div>
+          <div class="info-card">
+            <h3>Bloqueados</h3>
+            <p class="card-number" style="color: var(--color-danger);">03</p>
+            <span>acessos restritos</span>
+          </div>
+        </section>
+
+        <section class="panel" style="margin-bottom: 24px;">
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end;">
+            <div style="flex: 2; min-width: 250px;">
+              <label style="display:block; margin-bottom:8px; font-weight:700; font-size:14px;">Buscar Usuário</label>
+              <input type="text" id="searchUser" placeholder="Nome, e-mail ou CPF..." 
+                     style="width: 100%; height: 46px; padding: 0 15px; border-radius: 12px; border: 1px solid #e5e7eb;">
+            </div>
+            <div style="flex: 1; min-width: 150px;">
+              <label style="display:block; margin-bottom:8px; font-weight:700; font-size:14px;">Status</label>
+              <select style="width:100%; height: 46px; padding: 0 15px; border-radius: 12px; border: 1px solid #e5e7eb; background: white;">
+                <option value="">Todos</option>
+                <option value="ativo">Ativos</option>
+                <option value="bloqueado">Bloqueados</option>
+              </select>
+            </div>
+            <button class="secondary-btn" style="height:46px;">Exportar Lista</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="summary-table-wrapper">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th>Nome do Usuário</th>
+                  <th>Contato</th>
+                  <th>Desde</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody">
+                <tr>
+                  <td>
+                    <strong>Liah Collins</strong><br>
+                    <small style="color:var(--color-text-soft)">ID: #1250</small>
+                  </td>
+                  <td>
+                    liah@email.com<br>
+                    <small>(98) 98888-7777</small>
+                  </td>
+                  <td>12/03/2026</td>
+                  <td><span class="status-badge active">Ativo</span></td>
+                  <td style="display: flex; gap: 8px;">
+                    <button class="primary-btn" style="padding: 8px; border-radius: 8px;" title="Editar">✏️</button>
+                    <button class="secondary-btn" style="padding: 8px; border-radius: 8px;" title="Bloquear">🚫</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Fulano de Tal</strong><br>
+                    <small style="color:var(--color-text-soft)">ID: #1249</small>
+                  </td>
+                  <td>
+                    fulano@gmail.com<br>
+                    <small>(98) 91111-2222</small>
+                  </td>
+                  <td>10/03/2026</td>
+                  <td><span class="status-badge inactive" style="background:#fee2e2; color:#b91c1c;">Bloqueado</span></td>
+                  <td style="display: flex; gap: 8px;">
+                    <button class="primary-btn" style="padding: 8px; border-radius: 8px;">✏️</button>
+                    <button class="secondary-btn" style="padding: 8px; border-radius: 8px; background:#dcfce7; color:#15803d; border-color:#bbf7d0;">✔️</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/parceiro/sidebar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      if (!usuario || usuario.tipo !== 'admin') {
+        window.location.href = '../login1.html';
+        return;
+      }
+      const emailSidebar = document.getElementById('adminEmail');
+      if (emailSidebar) emailSidebar.textContent = usuario.email;
+    });
+
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('usuario');
+        window.location.href = '../../index.html';
+      });
+    }
+  </script>
+</body>
+</html>

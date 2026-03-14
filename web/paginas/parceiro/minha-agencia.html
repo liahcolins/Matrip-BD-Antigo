@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Agência | Matrip</title>
+
+  <link rel="stylesheet" href="../../css/parceiro/layout.css" />
+  <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
+  <link rel="stylesheet" href="../../css/parceiro/agencia.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip" class="brand-logo" />
+          <div class="brand-text">
+            <h2>Matrip</h2>
+            <p>Parceiro</p>
+          </div>
+        </div>
+
+        <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+          &times;
+        </button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="index.html" class="menu-item">
+          <span>🏠</span>
+          <span>Home</span>
+        </a>
+
+        <a href="minha-agencia.html" class="menu-item active">
+          <span>🏢</span>
+          <span>Minha Agência</span>
+        </a>
+
+        <a href="meus-passeios.html" class="menu-item">
+          <span>🧳</span>
+          <span>Meus Passeios</span>
+        </a>
+
+        <a href="valores.html" class="menu-item">
+          <span>💰</span>
+          <span>Valores</span>
+        </a>
+
+        <a href="imagens.html" class="menu-item">
+          <span>🖼️</span>
+          <span>Imagens</span>
+        </a>
+
+        <a href="servicos.html" class="menu-item">
+          <span>🧾</span>
+          <span>Serviços</span>
+        </a>
+
+        <a href="perfil.html" class="menu-item">
+          <span>👤</span>
+          <span>Perfil</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="partner-info">
+          <strong>Parceiro logado</strong>
+          <small id="sidebarPartnerEmail">agencia@matrip.com</small>
+        </div>
+
+        <button class="logout-btn" type="button">Sair</button>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+          ☰
+        </button>
+
+        <div class="topbar-title">
+          <h1>Minha Agência</h1>
+          <p>Visualize e atualize os dados da sua agência parceira.</p>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="agency-page">
+          <div class="agency-header-card">
+            <div class="agency-logo-box">
+              <img
+                id="logoPreview"
+                src="../../img/placeholder-agencia.png"
+                alt="Logo da agência"
+                class="agency-logo-preview"
+                onerror="this.src='../../logo-matrip-oficial-01.png'"
+              />
+            </div>
+
+            <div class="agency-header-info">
+              <h2 id="agencyDisplayName">Carregando agência...</h2>
+              <p id="agencyDisplayEmail">--</p>
+              <div class="agency-status-row">
+                <span class="status-badge active" id="agencyStatusBadge">Ativa</span>
+              </div>
+            </div>
+          </div>
+
+          <section class="panel">
+            <div class="panel-header panel-header-space">
+              <h2>Dados cadastrais</h2>
+              <button class="primary-btn" id="saveAgencyBtn" type="button">Salvar alterações</button>
+            </div>
+
+            <div id="messageBox" class="message-box hidden"></div>
+
+            <form id="agencyForm" class="agency-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="nome_fantasia">Nome fantasia</label>
+                  <input type="text" id="nome_fantasia" name="nome_fantasia" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="razao_social">Razão social</label>
+                  <input type="text" id="razao_social" name="razao_social" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="cnpj">CNPJ</label>
+                  <input type="text" id="cnpj" name="cnpj" maxlength="18" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="homepage">Homepage</label>
+                  <input type="url" id="homepage" name="homepage" placeholder="https://..." />
+                </div>
+
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <select id="status" name="status">
+                    <option value="ativa">Ativa</option>
+                    <option value="inativa">Inativa</option>
+                  </select>
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label for="endereco">Endereço</label>
+                  <input type="text" id="endereco" name="endereco" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="bairro">Bairro</label>
+                  <input type="text" id="bairro" name="bairro" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="telefone">Telefone</label>
+                  <input type="text" id="telefone" name="telefone" maxlength="20" />
+                </div>
+
+                <div class="form-group">
+                  <label for="celular">Celular</label>
+                  <input type="text" id="celular" name="celular" maxlength="20" required />
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label for="logo">URL da logo</label>
+                  <input type="text" id="logo" name="logo" placeholder="https://... ou /uploads/logo.png" />
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Resumo rápido</h2>
+            </div>
+
+            <div class="agency-summary-grid">
+              <div class="summary-mini-card">
+                <span class="summary-label">Responsável cadastrado</span>
+                <strong id="summaryNomeFantasia">--</strong>
+              </div>
+
+              <div class="summary-mini-card">
+                <span class="summary-label">Contato principal</span>
+                <strong id="summaryCelular">--</strong>
+              </div>
+
+              <div class="summary-mini-card">
+                <span class="summary-label">Site</span>
+                <strong id="summaryHomepage">--</strong>
+              </div>
+
+              <div class="summary-mini-card">
+                <span class="summary-label">CNPJ</span>
+                <strong id="summaryCnpj">--</strong>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/parceiro/sidebar.js"></script>
+  <script src="../../js/parceiro/minha-agencia.js"></script>
+</body>
+</html>

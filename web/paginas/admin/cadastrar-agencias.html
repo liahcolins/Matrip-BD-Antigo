@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastrar Agência | Matrip Admin</title>
+
+  <link rel="stylesheet" href="../../css/parceiro/layout.css" />
+  <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
+  <link rel="stylesheet" href="../../css/parceiro/agencia.css" />
+  <link rel="stylesheet" href="../../css/admin/index.css" />
+</head>
+
+<body>
+  <header class="admin-header">
+    <div class="logo">
+      <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip">
+      <span class="slogan">Seu guia de experiências turísticas</span>
+    </div>
+
+    <div class="actions">
+      <div class="lang">
+        <img src="https://flagcdn.com/w40/br.png" alt="Português (BR)">
+      </div>
+      <div class="sep"></div>
+      <div class="account">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+        Perfil: Administrador
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip" class="brand-logo" />
+          <div class="brand-text">
+            <h2>Matrip</h2>
+            <p>Administrador</p>
+          </div>
+        </div>
+        <button class="sidebar-close" id="sidebarClose">&times;</button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="index.html" class="menu-item"><span>🏠</span><span>Home</span></a>
+        
+        <a href="gerenciar-usuarios.html" class="menu-item"><span>👥</span><span>Gerenciar Usuários</span></a>
+        
+        <a href="gerenciar-guias.html" class="menu-item"><span>🧭</span><span>Gerenciar Guias</span></a>
+        
+        <a href="gerenciar-passeios.html" class="menu-item"><span>🧳</span><span>Gerenciar Passeios</span></a>
+        
+        <a href="gerenciar-agencias.html" class="menu-item"><span>🏢</span><span>Gerenciar Agências</span></a>
+        
+        <a href="cadastrar-agencias.html" class="menu-item active"><span>📝</span><span>Cadastrar Agências</span></a>
+        
+        <a href="financeiro.html" class="menu-item"><span>💰</span><span>Financeiro</span></a>
+        
+        <a href="suporte.html" class="menu-item"><span>🛠️</span><span>Suporte</span></a>
+        
+        <a href="configuracoes.html" class="menu-item"><span>⚙️</span><span>Configurações</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="partner-info">
+          <strong>Admin logado</strong>
+          <small id="adminEmail">admin@matrip.com</small>
+        </div>
+        <button class="logout-btn" id="logoutBtn">Sair</button>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="topbar-title">
+          <h1>Cadastrar Nova Agência</h1>
+          <p>Insira os dados da nova agência parceira no sistema.</p>
+        </div>
+      </header>
+
+      <main class="content">
+        <div id="messageBox" class="message-box hidden"></div>
+
+        <section class="panel">
+          <div class="panel-header panel-header-space">
+            <h2>Formulário de Cadastro</h2>
+            <button class="primary-btn" id="btnSalvarAgencia" type="button">Finalizar Cadastro</button>
+          </div>
+
+          <form id="formCadastrarAgencia" class="agency-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nome_da_agencia">Nome da Agência</label>
+                <input type="text" id="nome_da_agencia" placeholder="Ex: Matrip Tour" required />
+              </div>
+
+              <div class="form-group">
+                <label for="razao_social">Razão Social</label>
+                <input type="text" id="razao_social" placeholder="Razão Social LTDA" required />
+              </div>
+
+              <div class="form-group">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" placeholder="00.000.000/0001-00" maxlength="18" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-mail de Contato</label>
+                <input type="email" id="email" placeholder="agencia@email.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="homepage">Site / Homepage</label>
+                <input type="url" id="homepage" placeholder="https://..." />
+              </div>
+
+              <div class="form-group">
+                <label for="celular">Celular / WhatsApp</label>
+                <input type="text" id="celular" placeholder="(00) 00000-0000" required />
+              </div>
+
+              <div class="form-group form-group-full">
+                <label for="endereco">Endereço Completo</label>
+                <input type="text" id="endereco" placeholder="Rua, número, complemento" required />
+              </div>
+
+              <div class="form-group">
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" required />
+              </div>
+
+              <div class="form-group">
+                <label for="status">Status Inicial</label>
+                <select id="status">
+                  <option value="ativa">Ativa</option>
+                  <option value="inativa">Inativa (Pendente)</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/parceiro/sidebar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      if (!usuario || usuario.tipo !== 'admin') {
+        window.location.href = '../login1.html';
+      }
+      
+      const emailSidebar = document.getElementById('adminEmail');
+      if (emailSidebar) emailSidebar.textContent = usuario.email;
+    });
+
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('usuario');
+        window.location.href = '../../index.html';
+      });
+    }
+  </script>
+</body>
+</html>

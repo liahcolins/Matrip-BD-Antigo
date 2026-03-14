@@ -1,0 +1,29 @@
+{
+  "name": "matrip_projeto_uema",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elciobbsjr/MAtrip_projeto_UEMA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elciobbsjr/MAtrip_projeto_UEMA/issues"
+  },
+  "homepage": "https://github.com/elciobbsjr/MAtrip_projeto_UEMA#readme",
+  "description": "",
+  "dependencies": {
+    "@expo/metro-runtime": "~55.0.6",
+    "cors": "^2.8.5",
+    "expo": "^55.0.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.16.0",
+    "react-dom": "19.2.0",
+    "react-native-web": "^0.21.0"
+  }
+}

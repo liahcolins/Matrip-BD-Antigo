@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meus Passeios | Matrip</title>
+
+  <link rel="stylesheet" href="../../css/parceiro/layout.css" />
+  <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
+  <link rel="stylesheet" href="../../css/parceiro/meus-passeios.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip" class="brand-logo" />
+          <div class="brand-text">
+            <h2>Matrip</h2>
+            <p>Parceiro</p>
+          </div>
+        </div>
+
+        <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+          &times;
+        </button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="index.html" class="menu-item">
+          <span>🏠</span>
+          <span>Home</span>
+        </a>
+
+        <a href="minha-agencia.html" class="menu-item">
+          <span>🏢</span>
+          <span>Minha Agência</span>
+        </a>
+
+        <a href="meus-passeios.html" class="menu-item active">
+          <span>🧳</span>
+          <span>Meus Passeios</span>
+        </a>
+
+        <a href="valores.html" class="menu-item">
+          <span>💰</span>
+          <span>Valores</span>
+        </a>
+
+        <a href="imagens.html" class="menu-item">
+          <span>🖼️</span>
+          <span>Imagens</span>
+        </a>
+
+        <a href="servicos.html" class="menu-item">
+          <span>🧾</span>
+          <span>Serviços</span>
+        </a>
+
+        <a href="perfil.html" class="menu-item">
+          <span>👤</span>
+          <span>Perfil</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="partner-info">
+          <strong>Parceiro logado</strong>
+          <small id="sidebarPartnerEmail">agencia@matrip.com</small>
+        </div>
+
+        <button class="logout-btn" type="button">Sair</button>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+          ☰
+        </button>
+
+        <div class="topbar-title">
+          <h1>Meus Passeios</h1>
+          <p>Visualize, filtre e acompanhe os passeios cadastrados.</p>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel">
+          <div class="page-actions">
+            <div class="filters">
+              <div class="filter-group">
+                <label for="filterCategoria">Categoria</label>
+                <select id="filterCategoria">
+                  <option value="">Todas</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filterCidade">Cidade</label>
+                <input type="text" id="filterCidade" placeholder="Digite a cidade" />
+              </div>
+
+              <div class="filter-group filter-search">
+                <label for="searchPasseio">Buscar</label>
+                <input type="text" id="searchPasseio" placeholder="Nome, local ou descrição" />
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <button class="secondary-btn" id="clearFiltersBtn" type="button">Limpar filtros</button>
+              <a href="#" class="primary-link-btn">+ Novo passeio</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="cards-grid metrics-grid">
+          <div class="info-card">
+            <h3>Total de passeios</h3>
+            <p class="card-number" id="metricTotal">0</p>
+            <span>registros encontrados</span>
+          </div>
+
+          <div class="info-card">
+            <h3>Categorias</h3>
+            <p class="card-number" id="metricCategorias">0</p>
+            <span>tipos diferentes</span>
+          </div>
+
+          <div class="info-card">
+            <h3>Cidades</h3>
+            <p class="card-number" id="metricCidades">0</p>
+            <span>locais atendidos</span>
+          </div>
+
+          <div class="info-card">
+            <h3>Preço médio</h3>
+            <p class="card-number" id="metricPrecoMedio">R$ 0,00</p>
+            <span>valor final médio</span>
+          </div>
+        </section>
+
+        <div id="messageBox" class="message-box hidden"></div>
+
+        <section class="passeios-grid" id="passeiosGrid">
+        </section>
+
+        <section class="panel empty-state hidden" id="emptyState">
+          <h2>Nenhum passeio encontrado</h2>
+          <p>Revise os filtros aplicados ou cadastre novos passeios.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../../js/parceiro/sidebar.js"></script>
+  <script src="../../js/parceiro/meus-passeios.js"></script>
+</body>
+</html>
