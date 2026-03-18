@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gerenciar Passeios | Matrip Admin</title>
+  <title>Gerenciar Agências | Matrip Admin</title>
 
   <link rel="stylesheet" href="../../css/parceiro/layout.css" />
   <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
-  <link rel="stylesheet" href="../../css/parceiro/meus-passeios.css" />
+  
   <link rel="stylesheet" href="../../css/admin/index.css" />
-  <link rel="stylesheet" href="../../css/admin/gerenciar-passeios.css" />
+  <link rel="stylesheet" href="../../css/admin/gerenciar-agencias.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
+
   <header class="admin-header">
     <div class="logo">
       <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip">
       <span class="slogan">Seu guia de experiências turísticas</span>
     </div>
-
     <div class="actions">
       <div class="lang">
         <img src="https://flagcdn.com/w40/br.png" alt="Português (BR)">
@@ -49,11 +49,11 @@
           <span class="material-symbols-outlined">explore</span>
           <span>Gerenciar Guias</span>
         </a>
-        <a href="gerenciar-passeios.html" class="menu-item active">
+        <a href="gerenciar-passeios.html" class="menu-item">
           <span class="material-symbols-outlined">luggage</span>
           <span>Gerenciar Passeios</span>
         </a>
-        <a href="gerenciar-agencias.html" class="menu-item">
+        <a href="gerenciar-agencias.html" class="menu-item active">
           <span class="material-symbols-outlined">domain</span>
           <span>Gerenciar Agências</span>
         </a>
@@ -80,86 +80,76 @@
           <strong>Admin logado</strong>
           <small id="adminEmail">admin@matrip.com</small>
         </div>
-        <button class="logout-btn" type="button" id="logoutBtn">Sair</button>
+        <button class="logout-btn" id="logoutBtn">Sair</button>
       </div>
     </aside>
 
     <div class="dashboard-main">
       <header class="topbar">
-        <button class="menu-toggle" id="menuToggle">☰</button>
         <div class="topbar-title">
-          <h1>Gerenciar Passeios</h1>
-          <p>Visualize e controle todos os passeios cadastrados na plataforma Matrip.</p>
+          <h1>Gerenciar Agências Parceiras</h1>
+          <p>Aprove novos parceiros, visualize documentos e controle o acesso à plataforma.</p>
         </div>
       </header>
 
       <main class="content">
+        <section class="cards-grid metrics-grid">
+          <div class="info-card">
+            <h3>Total de Agências</h3>
+            <p class="card-number" id="metricTotal">0</p>
+            <span>na base de dados</span>
+          </div>
+          <div class="info-card" style="border-left: 4px solid #f59e0b;">
+            <h3>Aguardando Aprovação</h3>
+            <p class="card-number" id="metricPendentes" style="color: #f59e0b;">0</p>
+            <span>precisam de análise</span>
+          </div>
+          <div class="info-card" style="border-left: 4px solid #10b981;">
+            <h3>Agências Ativas</h3>
+            <p class="card-number" id="metricAtivas">0</p>
+            <span>vendendo no site</span>
+          </div>
+        </section>
+
         <section class="panel">
           <div class="page-actions">
             <div class="filters">
               <div class="filter-group">
-                <label for="filterAgencia">Agência/Guia</label>
-                <select id="filterAgencia">
-                  <option value="">Todas as origens</option>
-                  </select>
-              </div>
-
-              <div class="filter-group">
-                <label for="filterCidade">Cidade</label>
-                <input type="text" id="filterCidade" placeholder="Filtrar por local" />
+                <label for="filterStatus">Status</label>
+                <select id="filterStatus">
+                  <option value="">Todos</option>
+                  <option value="pendente">Pendentes (Aprovar)</option>
+                  <option value="ativo">Ativos</option>
+                  <option value="bloqueado">Bloqueados</option>
+                </select>
               </div>
 
               <div class="filter-group filter-search">
-                <label for="searchPasseio">Buscar Passeio</label>
+                <label for="searchAgencia">Buscar Agência</label>
                 <div class="search-wrapper">
-                  <input type="text" id="searchPasseio" placeholder="Nome ou descrição...">
+                  <input type="text" id="searchAgencia" placeholder="Nome Fantasia ou CNPJ..." />
                   <button type="button" id="btnSearch" class="search-btn">🔍</button>
                 </div>
               </div>
-
             </div>
-
             <div class="action-buttons">
               <button class="secondary-btn" id="clearFiltersBtn">Limpar</button>
+              <button class="primary-btn" onclick="window.location.href='cadastrar-agencias.html'">+ Nova Agência</button>
             </div>
           </div>
         </section>
 
-        <section class="cards-grid metrics-grid">
-          <div class="info-card">
-            <h3>Total de passeios</h3>
-            <p class="card-number" id="metricTotal">0</p>
-            <span>ativos no site</span>
-          </div>
-
-          <div class="info-card">
-            <h3>Preço Médio</h3>
-            <p class="card-number" id="metricPrecoMedio">R$ 0,00</p>
-            <span>no Maranhão</span>
-          </div>
-
-          <div class="info-card">
-            <h3>Aprovações</h3>
-            <p class="card-number" id="metricPendentes">0</p>
-            <span>novos hoje</span>
-          </div>
-        </section>
-
-        <div id="messageBox" class="message-box hidden"></div>
-
-        <section class="passeios-list" id="passeiosList">
-        </section>
+        <section class="passeios-list" id="agenciasList">
+          </section>
 
         <section class="panel empty-state hidden" id="emptyState">
-          <h2>Nenhum passeio encontrado</h2>
-          <p>Tente ajustar os filtros ou verifique a conexão com o banco.</p>
+          <h2>Nenhuma agência encontrada</h2>
+          <p>Tente ajustar os filtros ou cadastrar uma nova agência.</p>
         </section>
       </main>
     </div>
   </div>
 
-  <script src="../../js/parceiro/sidebar.js"></script>
-  <script src="../../js/admin/gerenciar-passeios.js"></script>
-</body>
+  <script src="../../js/admin/gerenciar-agencias.js"></script>
 </body>
 </html>

@@ -1,0 +1,183 @@
+/* Container da Lista (Igual ao de passeios) */
+.passeios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Item da Lista (Linha única) */
+.list-item {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.list-item-header {
+  padding: 15px 20px;
+  display: grid;
+  /* Colunas: ID, Nome/CNPJ, Contato, Status, Ícone */
+  grid-template-columns: 50px 1fr 200px 120px 40px;
+  align-items: center;
+  cursor: pointer;
+  gap: 15px;
+}
+
+.list-item-header:hover {
+  background-color: #f8fafc;
+}
+
+.list-item-header h4 {
+  margin: 0;
+  color: #023847;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.list-item-header small {
+  display: block;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Etiquetas de Status (Badges) */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.status-badge.pendente {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-badge.ativo {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.status-badge.bloqueado {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Parte que abre (Detalhes) */
+.list-item-details {
+  display: none; 
+  padding: 25px;
+  border-top: 1px solid #f1f5f9;
+  background: #fcfdfe;
+  animation: slideDown 0.3s ease-out;
+}
+
+.list-item.active .list-item-details {
+  display: block;
+}
+
+.list-item.active {
+  border-color: #11c5b6;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.agency-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.info-block p {
+  margin: 8px 0;
+  color: #334155;
+}
+
+.info-block strong {
+  color: #023847;
+}
+
+.action-bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn-approve { background: #10b981; color: white; }
+.btn-approve:hover { background: #059669; }
+
+.btn-reject { background: #ef4444; color: white; }
+.btn-reject:hover { background: #dc2626; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Copiando a barra de busca perfeita que fizemos */
+.filter-group select, .search-wrapper { height: 45px !important; box-sizing: border-box; }
+.search-wrapper { display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; padding-left: 10px; }
+.search-wrapper input { border: none !important; outline: none !important; flex: 1; background: transparent; }
+.search-btn { background-color: #023847; color: white; border: none; height: 100%; width: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.search-btn:hover { background-color: #0fa99b; }
+
+/* ================= ALINHAMENTO DOS FILTROS E BUSCA ================= */
+.page-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #023847;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* ================= BOTÃO SECUNDÁRIO (LIMPAR) ================= */
+.secondary-btn {
+  background-color: #ffffff;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  padding: 0 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  height: 45px; /* Mesma altura da barra de pesquisa */
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.secondary-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}

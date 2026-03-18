@@ -1,10 +1,10 @@
 /* Variáveis de Cores Exclusivas do Admin */
 :root {
-  /* Fundo da Sidebar vira Turquesa Claro */
-  --color-sidebar: #11c5b6; 
-  --color-sidebar-hover: #0fa99b; 
+  /* Fundo da Sidebar vira Amarelo Escuro */
+  --color-sidebar: #d4a000; 
+  --color-sidebar-hover: #b38600; /* Um tom um pouco mais escuro para o hover */
   
-  /* Botões e Itens Ativos viram Azul Escuro */
+  /* Botões e Itens Ativos continuam Azul Escuro */
   --color-primary: #023847; 
   --color-primary-dark: #01242e; 
 }
@@ -62,17 +62,27 @@
 }
 
 /* ====== HEADER PRINCIPAL ADMIN (Baseado no V3) ====== */
+/* ================= HEADER (BARRA SUPERIOR) FIXO ================= */
 .admin-header {
   background: #003543;
-  position: sticky; 
-  top: 0; 
-  z-index: 50;
-  padding: 10px 30px; /* Mais espaçamento lateral para o Admin */
+  position: fixed !important; /* Crava o header no topo da tela */
+  top: 0 !important; 
+  left: 0 !important;
+  width: 100% !important; /* Garante que ele ocupe a tela toda de ponta a ponta */
+  z-index: 999 !important; /* Fica por cima de absolutamente TUDO */
+  padding: 10px 30px; 
+  box-sizing: border-box !important;
   box-shadow: 0 2px 6px rgba(0,0,0,.2);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
+  height: 100px !important; /* Fixa a altura dele em 100px para a matemática bater perfeita */
+}
+
+/* ================= EMPURRÃO NO CONTEÚDO ================= */
+/* Como o header agora "flutua", temos que empurrar o resto do site pra baixo */
+.dashboard-container {
+  padding-top: 100px !important; /* Exatamente a altura do header */
 }
 
 /* Logo + Slogan */
@@ -159,16 +169,15 @@
   left: 0 !important;
   width: 260px !important;
   height: calc(100vh - 100px) !important; /* Altura da tela menos o header */
-  background-color: #11c5b6 !important; /* Garante a cor no fundo todo */
+  background-color: var(--color-sidebar) !important; /* Garante a cor no fundo todo */
   z-index: 40 !important;
   display: block !important; /* Tiramos o flexbox para não ter briga */
 }
 
-/* 2. O Menu (Lista de links) */
 .sidebar-menu {
-  /* Deixa bastante espaço vazio no final da tela para o botão de sair não sobrepor os links */
   height: calc(100% - 220px) !important; 
-  overflow-y: auto !important; /* O scroll acontece só aqui dentro */
+  overflow-y: auto !important; 
+  /*padding-top: 10px !important; /* 👇 Adicionamos isso para o primeiro link não colar no teto */
 }
 
 /* 3. O Rodapé (Botão Sair e Email) - SUBINDO NA MARRA */
@@ -180,7 +189,7 @@
   width: 100% !important;
   height: 140px !important; /* Altura fixa para caber o texto e o botão */
   padding: 20px !important;
-  background-color: #11c5b6 !important;
+  background-color: var(--color-sidebar) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
   box-sizing: border-box !important;
 }
@@ -198,4 +207,19 @@
 .sidebar-menu::-webkit-scrollbar-thumb {
   background: rgba(0, 56, 71, 0.2); 
   border-radius: 4px;
+}
+
+/* ================= ÍCONES DO MENU ================= */
+.sidebar .menu-item .material-symbols-outlined {
+  font-size: 22px; /* Tamanho ideal do ícone */
+  transition: color 0.2s;
+  /* Isso garante que a cor do ícone seja EXATAMENTE a mesma do texto ao lado */
+  color: inherit; 
+}
+
+/* Alinha o ícone e o texto lado a lado perfeitamente */
+.sidebar .menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
