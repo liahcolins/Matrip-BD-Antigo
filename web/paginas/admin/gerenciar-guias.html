@@ -93,22 +93,25 @@
 
       <main class="content">
         <section class="cards-grid">
-          <div class="info-card">
+          <div class="info-card" style="border-left: 4px solid #11c5b6;">
             <h3>Total de Guias</h3>
             <p class="card-number">42</p>
             <span>profissionais ativos</span>
           </div>
-          <div class="info-card">
+
+          <div class="info-card" style="border-left: 4px solid #f59e0b;">
             <h3>Novas Solicitações</h3>
-            <p class="card-number">05</p>
+            <p class="card-number" style="color: #f59e0b;">05</p>
             <span>aguardando revisão</span>
           </div>
-          <div class="info-card">
+
+          <div class="info-card" style="border-left: 4px solid #023847;">
             <h3>Passeios por Guias</h3>
             <p class="card-number">128</p>
             <span>passeios cadastrados</span>
           </div>
-          <div class="info-card">
+
+          <div class="info-card" style="border-left: 4px solid #023847;">
             <h3>Cidades Atendidas</h3>
             <p class="card-number">12</p>
             <span>regiões cobertas</span>
@@ -204,6 +207,27 @@
     </div>
   </div>
 
-  <script src="../../js/parceiro/sidebar.js"></script>
+<script src="../../js/parceiro/sidebar.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Puxa os dados do usuário salvos no login
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      
+      // Se tiver usuário logado, troca o texto do e-mail na sidebar
+      if (usuario && usuario.email) {
+        document.getElementById('adminEmail').textContent = usuario.email;
+      }
+    });
+
+    // Faz o botão de Sair funcionar
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('usuario');
+        window.location.href = '../../index.html'; // Redireciona para fora
+      });
+    }
+  </script>
 </body>
 </html>

@@ -156,3 +156,22 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAgencias(allAgencias);
   updateMetrics();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+      // Puxa os dados do usuário salvos no login
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      
+      // Se tiver usuário logado, troca o texto do e-mail na sidebar
+      if (usuario && usuario.email) {
+        document.getElementById('adminEmail').textContent = usuario.email;
+      }
+    });
+
+    // Faz o botão de Sair funcionar
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('usuario');
+        window.location.href = '../../index.html'; // Redireciona para fora
+      });
+    }

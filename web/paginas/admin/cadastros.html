@@ -85,15 +85,27 @@
 
     <div class="dashboard-main">
       <header class="topbar">
-        <div class="topbar-title">
-          <h1>Central de Cadastros</h1>
-          <p>Selecione o tipo de registro que deseja adicionar ao sistema.</p>
+        <div class="topbar-title" style="display: flex; align-items: center; gap: 15px;">
+          <div>
+            <h1>Central de Cadastros</h1>
+            <p>Selecione o tipo de registro que deseja adicionar ao sistema.</p>
+          </div>
         </div>
       </header>
 
       <main class="content">
         <div class="cadastros-grid">
           
+          <a href="cadastrar-produto.html" class="card-cadastro">
+            <div class="card-icon">
+              <span class="material-symbols-outlined">add_shopping_cart</span>
+            </div>
+            <div class="card-info">
+              <h3>Produtos</h3>
+              <p>Cadastrar novos passeios e experiências turísticas</p>
+            </div>
+          </a>
+
           <a href="cadastrar-agencia.html" class="card-cadastro">
             <div class="card-icon"><span class="material-symbols-outlined">add_business</span></div>
             <div class="card-info">
@@ -127,13 +139,40 @@
           </a>
 
         </div>
+
+        <section class="quick-info-row" style="margin-top: 50px;">
+          <h2 style="font-size: 18px; color: #023847; margin-bottom: 20px;">Resumo do Inventário</h2>
+          
+          <div class="stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+              
+              <div class="stat-box" style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; border-left: 4px solid #023847;">
+                  <small style="color: #64748b; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px;">Idiomas Ativos</small>
+                  <p style="font-size: 24px; font-weight: 800; color: #023847; margin-top: 5px;">08</p>
+              </div>
+
+              <div class="stat-box" style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; border-left: 4px solid #11c5b6;">
+                  <small style="color: #64748b; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px;">Cidades Atendidas</small>
+                  <p style="font-size: 24px; font-weight: 800; color: #11c5b6; margin-top: 5px;">15</p>
+              </div>
+
+              <div class="stat-box" style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; border-left: 4px solid #023847;">
+                  <small style="color: #64748b; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px;">Categorias Criadas</small>
+                  <p style="font-size: 24px; font-weight: 800; color: #023847; margin-top: 5px;">12</p>
+              </div>
+
+              <div class="stat-box" style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; border-left: 4px solid #f59e0b;">
+                  <small style="color: #64748b; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px;">Agências Pendentes</small>
+                  <p style="font-size: 24px; font-weight: 800; color: #f59e0b; margin-top: 5px;">03</p>
+              </div>
+
+          </div>
+      </section>
       </main>
     </div>
   </div>
 
   <script src="../../js/parceiro/sidebar.js"></script>
   <script>
-    // Script de Proteção de Admin e Logout
     document.addEventListener('DOMContentLoaded', () => {
       const usuario = JSON.parse(localStorage.getItem('usuario'));
       if (!usuario || usuario.tipo !== 'admin') {

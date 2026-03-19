@@ -246,3 +246,101 @@
     border-top: 1px solid #eee; /* Linha sutil para separar do formulário */
     margin-top: 10px;
 }
+
+/* Garante que o conteúdo da sanfona apareça suavemente */
+.accordion-content {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #f1f5f9;
+    animation: slideDown 0.3s ease-out;
+}
+
+.accordion-content.show {
+    display: block;
+}
+
+/* Roda a setinha quando ativo */
+.accordion-header.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* =========================================
+   ESTILOS PARA FORMULÁRIOS DE CADASTRO
+   ========================================= */
+
+/* Grid do Formulário (Divide em 2 colunas lado a lado) */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Grupo de Input (Espaçamento entre a Label e o Campo) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+/* Estilo das Labels (Títulos de cada campo) */
+.form-group label {
+    font-weight: 700;
+    font-size: 14px;
+    color: #023847; /* Azul escuro Matrip */
+}
+
+/* Estilo das "Barras" (Inputs e Selects com borda arredondada) */
+.form-group input,
+.form-group select {
+    height: 46px; /* Altura exata da barra */
+    padding: 0 15px; /* Espaço interno para o texto não colar na borda */
+    border-radius: 12px; /* O segredo para ficar arredondado! */
+    border: 1px solid #e5e7eb; /* Borda cinza clarinha */
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    color: #023847;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Estilo específico para a Caixa de Texto de Descrição (Textarea) */
+.form-group textarea {
+    padding: 15px;
+    border-radius: 12px; /* Arredondado igual os inputs */
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    color: #023847;
+    outline: none;
+    resize: vertical; /* Permite aumentar a caixa só para baixo */
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao clicar no campo (Focus) - Borda Turquesa */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #11c5b6; /* Turquesa Matrip */
+    box-shadow: 0 0 0 3px rgba(17, 197, 182, 0.15); /* Sombra turquesa suave ao redor */
+}
+
+/* Garante que itens com span 2 ocupem a tela toda em telas menores */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Vira 1 coluna no celular */
+    }
+    .form-group[style*="grid-column: span 2"] {
+        grid-column: span 1 !important;
+    }
+}
+
+/* Engrossando a barra dos cadastros para ficar igual à Central */
+.topbar-navigation {
+    display: flex;
+    align-items: center;
+    padding-top: 6px;    /* Aumente ou diminua esse valor se precisar */
+    padding-bottom: 6px; /* Aumente ou diminua esse valor se precisar */
+}

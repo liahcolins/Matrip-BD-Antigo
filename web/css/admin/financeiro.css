@@ -1,0 +1,159 @@
+/* ==========================================================================
+   DASHBOARD FINANCEIRO - ESTILOS GERAIS
+   ========================================================================== */
+
+/* Layout de Cards em Linha (3 Colunas) */
+.metrics-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Deixa os cards mais elegantes e consistentes */
+.metrics-row .info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.metrics-row .card-number {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 5px 0;
+    color: #023847;
+}
+
+/* ==========================================================================
+   BARRA DE FILTROS E BUSCA (PADRÃO MATRIP ADMIN)
+   ========================================================================== */
+
+/* Container Pai: Alinha Filtros na Esquerda e Botões na Direita */
+.page-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Container dos Filtros (Select + Busca) */
+.filters {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    flex: 1; /* Faz esse grupo ocupar o centro */
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #023847;
+}
+
+/* A "Mola": Faz a busca ocupar o espaço sobrando */
+.filter-group.grow {
+    flex: 1;
+}
+
+/* Estilo do SELECT (Período) */
+.filter-group select {
+    height: 45px !important;
+    padding: 0 15px !important;
+    border-radius: 12px !important;
+    border: 1px solid #e5e7eb !important;
+    background-color: white !important;
+    color: #023847;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    min-width: 180px;
+}
+
+/* Estilo da Barra de Busca */
+.search-wrapper {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.search-wrapper input {
+    border: none !important;
+    flex: 1;
+    padding: 0 15px;
+    outline: none;
+    height: 100%;
+}
+
+/* Botão da Lupa dentro da barra */
+.search-btn {
+    background-color: #023847;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.search-btn:hover {
+    background-color: #11c5b6;
+}
+
+.search-btn span {
+    font-size: 22px;
+}
+
+/* ==========================================================================
+   BOTÕES DE AÇÃO (EXPORTAR)
+   ========================================================================== */
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-export-fin {
+    height: 45px;
+    padding: 0 20px;
+    border-radius: 12px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    color: #023847;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-export-fin:hover {
+    background-color: #f8fafc;
+    border-color: #11c5b6;
+}
+
+.btn-export-fin span {
+    color: #11c5b6;
+    font-size: 20px;
+}

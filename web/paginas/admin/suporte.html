@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suporte ao Cliente | Matrip Admin</title>
+
+  <link rel="stylesheet" href="../../css/parceiro/layout.css" />
+  <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
+  
+  <link rel="stylesheet" href="../../css/admin/index.css" />
+  <link rel="stylesheet" href="../../css/admin/tabelas-gestao.css" />
+  <link rel="stylesheet" href="../../css/admin/financeiro.css" /> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+  <header class="admin-header">
+    <div class="logo">
+      <img src="../../logo-matrip-oficial-01.png" alt="Logo Matrip">
+      <span class="slogan">Seu guia de experiências turísticas</span>
+    </div>
+    <div class="actions">
+      <div class="lang"><img src="https://flagcdn.com/w40/br.png" alt="BR"></div>
+      <div class="sep"></div>
+      <div class="account">Perfil: Administrador</div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-menu">
+        <a href="index.html" class="menu-item"><span class="material-symbols-outlined">home</span><span>Home</span></a>
+        <a href="gerenciar-usuarios.html" class="menu-item"><span class="material-symbols-outlined">group</span><span>Gerenciar Usuários</span></a>
+        <a href="gerenciar-guias.html" class="menu-item"><span class="material-symbols-outlined">explore</span><span>Gerenciar Guias</span></a>
+        <a href="gerenciar-passeios.html" class="menu-item"><span class="material-symbols-outlined">luggage</span><span>Gerenciar Passeios</span></a>
+        <a href="gerenciar-agencias.html" class="menu-item"><span class="material-symbols-outlined">domain</span><span>Gerenciar Agências</span></a>
+        <a href="cadastros.html" class="menu-item"><span class="material-symbols-outlined">add_box</span><span>Cadastros</span></a>
+        <a href="financeiro.html" class="menu-item"><span class="material-symbols-outlined">payments</span><span>Financeiro</span></a>
+        <a href="suporte.html" class="menu-item active"><span class="material-symbols-outlined">support_agent</span><span>Suporte</span></a>
+        <a href="configuracoes.html" class="menu-item"><span class="material-symbols-outlined">settings</span><span>Configurações</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="partner-info"><strong>Admin logado</strong><small id="adminEmail">admin@matrip.com</small></div>
+        <button class="logout-btn" id="logoutBtn">Sair</button>
+      </div>
+    </aside>
+
+    <div class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-title">
+          <h1>Central de Suporte</h1>
+          <p>Gerencie chamados de usuários, guias e agências parceiras.</p>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="metrics-row">
+          <div class="info-card" style="border-left: 4px solid #ef4444;">
+            <h3>Chamados Abertos</h3>
+            <p class="card-number" style="color: #ef4444;">8</p>
+            <span>Aguardando resposta</span>
+          </div>
+          <div class="info-card" style="border-left: 4px solid #f59e0b;">
+            <h3>Em Atendimento</h3>
+            <p class="card-number" style="color: #f59e0b;">3</p>
+            <span>Sendo analisados</span>
+          </div>
+          <div class="info-card" style="border-left: 4px solid #10b981;">
+            <h3>Tempo Médio</h3>
+            <p class="card-number">45 min</p>
+            <span>Resposta rápida</span>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="page-actions">
+            <div class="filters">
+              <div class="filter-group">
+                <label>Status</label>
+                <select id="filterSuporte">
+                  <option value="">Todos os chamados</option>
+                  <option value="aberto">Abertos</option>
+                  <option value="respondido">Respondidos</option>
+                  <option value="fechado">Finalizados</option>
+                </select>
+              </div>
+
+              <div class="filter-group grow">
+                <label>Buscar Chamado</label>
+                <div class="search-wrapper">
+                  <input type="text" id="searchSuporte" placeholder="Assunto, Nome ou Nº do Ticket...">
+                  <button type="button" class="search-btn">
+                    <span class="material-symbols-outlined">search</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button class="btn-export-fin" style="background: #023847; color: white;">
+                <span class="material-symbols-outlined" style="color: white;">add</span>
+                Novo Ticket
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" style="margin-top: 25px;">
+          <div class="panel-header"><h2>Chamados Recentes</h2></div>
+          <div class="table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Ticket</th>
+                  <th>Solicitante</th>
+                  <th>Assunto</th>
+                  <th>Urgência</th>
+                  <th>Status</th>
+                  <th style="text-align: right;">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#TK-8854</strong></td>
+                  <td>Carlos Magno (Guia)</td>
+                  <td>Dúvida sobre repasse</td>
+                  <td><span style="color: #ef4444; font-weight: 700;">Alta</span></td>
+                  <td><span class="status-badge pendente">Aberto</span></td>
+                  <td style="text-align: right;">
+                    <div class="table-actions" style="justify-content: flex-end;">
+                      <button class="btn-action btn-edit" title="Responder"><span class="material-symbols-outlined">chat</span></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>#TK-8852</strong></td>
+                  <td>Ana Julia (Cliente)</td>
+                  <td>Cancelamento de reserva</td>
+                  <td>Normal</td>
+                  <td><span class="status-badge ativo">Resolvido</span></td>
+                  <td style="text-align: right;">
+                    <div class="table-actions" style="justify-content: flex-end;">
+                      <button class="btn-action btn-view" title="Ver Histórico"><span class="material-symbols-outlined">visibility</span></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+<script src="../../js/parceiro/sidebar.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Puxa os dados do usuário salvos no login
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      
+      // Se tiver usuário logado, troca o texto do e-mail na sidebar
+      if (usuario && usuario.email) {
+        document.getElementById('adminEmail').textContent = usuario.email;
+      }
+    });
+
+    // Faz o botão de Sair funcionar
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('usuario');
+        window.location.href = '../../index.html'; // Redireciona para fora
+      });
+    }
+  </script>
+</body>
+</html>
