@@ -7,8 +7,11 @@
 
   <link rel="stylesheet" href="../../css/parceiro/layout.css" />
   <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
-  <link rel="stylesheet" href="../../css/parceiro/agencia.css" />
   <link rel="stylesheet" href="../../css/admin/index.css" />
+  
+  <link rel="stylesheet" href="../../css/admin/cadastros.css" />
+  <link rel="stylesheet" href="../../css/admin/form-cadastros.css" />
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
@@ -56,28 +59,20 @@
           <span class="material-symbols-outlined">domain</span>
           <span>Gerenciar Agências</span>
         </a>
-        <a href="cadastrar-agencias.html" class="menu-item active">
-          <span class="material-symbols-outlined">add_business</span>
-          <span>Cadastrar Agências</span>
+        <a href="cadastros.html" class="menu-item active">
+          <span class="material-symbols-outlined">add_box</span>
+          <span>Cadastros</span>
         </a>
         <a href="financeiro.html" class="menu-item">
           <span class="material-symbols-outlined">payments</span>
           <span>Financeiro</span>
-        </a>
-        <a href="suporte.html" class="menu-item">
-          <span class="material-symbols-outlined">support_agent</span>
-          <span>Suporte</span>
-        </a>
-        <a href="configuracoes.html" class="menu-item">
-          <span class="material-symbols-outlined">settings</span>
-          <span>Configurações</span>
         </a>
       </nav>
 
       <div class="sidebar-footer">
         <div class="partner-info">
           <strong>Admin logado</strong>
-          <small id="adminEmail">admin@matrip.com</small>
+          <small id="adminEmail">carregando...</small>
         </div>
         <button class="logout-btn" id="logoutBtn">Sair</button>
       </div>
@@ -85,10 +80,15 @@
 
     <div class="dashboard-main">
       <header class="topbar">
-        <button class="menu-toggle" id="menuToggle">☰</button>
-        <div class="topbar-title">
-          <h1>Cadastrar Nova Agência</h1>
-          <p>Insira os dados da nova agência parceira no sistema.</p>
+        <div class="topbar-navigation">
+          <a href="cadastros.html" class="back-button-circle" title="Voltar para Cadastros">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+          
+          <div class="topbar-title">
+            <h1>Nova Agência Parceira</h1>
+            <p>Preencha os dados abaixo para vincular uma nova agência ao sistema.</p>
+          </div>
         </div>
       </header>
 
@@ -96,60 +96,71 @@
         <div id="messageBox" class="message-box hidden"></div>
 
         <section class="panel">
-          <div class="panel-header panel-header-space">
-            <h2>Formulário de Cadastro</h2>
-            <button class="primary-btn" id="btnSalvarAgencia" type="button">Finalizar Cadastro</button>
+          <div class="panel-header">
+            <h2>Formulário de Registro</h2>
           </div>
 
           <form id="formCadastrarAgencia" class="agency-form">
             <div class="form-grid">
+              
               <div class="form-group">
-                <label for="nome_da_agencia">Nome da Agência</label>
-                <input type="text" id="nome_da_agencia" placeholder="Ex: Matrip Tour" required />
+                <label for="ma05Fantasia">Nome Fantasia</label>
+                <input type="text" id="ma05Fantasia" placeholder="Nome comercial" required />
               </div>
 
               <div class="form-group">
-                <label for="razao_social">Razão Social</label>
-                <input type="text" id="razao_social" placeholder="Razão Social LTDA" required />
+                <label for="ma05RSocial">Razão Social</label>
+                <input type="text" id="ma05RSocial" placeholder="Nome jurídico da empresa" required />
               </div>
 
               <div class="form-group">
-                <label for="cnpj">CNPJ</label>
-                <input type="text" id="cnpj" placeholder="00.000.000/0001-00" maxlength="18" required />
+                <label for="ma05CNPJ">CNPJ</label>
+                <input type="text" id="ma05CNPJ" placeholder="00.000.000/0000-00" required />
               </div>
 
               <div class="form-group">
-                <label for="email">E-mail de Contato</label>
-                <input type="email" id="email" placeholder="agencia@email.com" required />
+                <label for="ma05Email">E-mail de Contato</label>
+                <input type="email" id="ma05Email" placeholder="contato@agencia.com" required />
               </div>
 
               <div class="form-group">
-                <label for="homepage">Site / Homepage</label>
-                <input type="url" id="homepage" placeholder="https://..." />
+                <label for="ma05homepage">Site Oficial</label>
+                <input type="url" id="ma05homepage" placeholder="https://www.agencia.com" />
               </div>
 
               <div class="form-group">
-                <label for="celular">Celular / WhatsApp</label>
-                <input type="text" id="celular" placeholder="(00) 00000-0000" required />
+                <label for="ma05telefone">Telefone Fixo</label>
+                <input type="text" id="ma05telefone" placeholder="(00) 0000-0000" />
+              </div>
+
+              <div class="form-group">
+                <label for="ma05celular">Celular / WhatsApp</label>
+                <input type="text" id="ma05celular" placeholder="(00) 00000-0000" required />
               </div>
 
               <div class="form-group form-group-full">
-                <label for="endereco">Endereço Completo</label>
-                <input type="text" id="endereco" placeholder="Rua, número, complemento" required />
+                <label for="ma05Endereco">Endereço Completo</label>
+                <input type="text" id="ma05Endereco" placeholder="Rua, número, sala/apto" required />
               </div>
 
               <div class="form-group">
-                <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" required />
+                <label for="ma05Bairro">Bairro</label>
+                <input type="text" id="ma05Bairro" placeholder="Ex: Centro" required />
               </div>
 
               <div class="form-group">
-                <label for="status">Status Inicial</label>
-                <select id="status">
-                  <option value="ativa">Ativa</option>
-                  <option value="inativa">Inativa (Pendente)</option>
+                <label for="ma05status">Status de Ativação</label>
+                <select id="ma05status">
+                  <option value="0">Ativo (Liberado)</option>
+                  <option value="1">Inativo (Bloqueado)</option>
                 </select>
               </div>
+
+            </div>
+
+            <div class="form-actions" style="margin-top: 30px; display: flex; justify-content: flex-end; gap: 15px;">
+                <button type="button" class="secondary-btn" onclick="window.location.href='cadastros.html'">Cancelar</button>
+                <button type="submit" class="primary-btn" id="btnSalvarAgencia">Finalizar Cadastro</button>
             </div>
           </form>
         </section>
@@ -159,12 +170,12 @@
 
   <script src="../../js/parceiro/sidebar.js"></script>
   <script>
+    // Verificação de Acesso e Logout
     document.addEventListener('DOMContentLoaded', () => {
       const usuario = JSON.parse(localStorage.getItem('usuario'));
       if (!usuario || usuario.tipo !== 'admin') {
         window.location.href = '../login1.html';
       }
-      
       const emailSidebar = document.getElementById('adminEmail');
       if (emailSidebar) emailSidebar.textContent = usuario.email;
     });
@@ -176,6 +187,13 @@
         window.location.href = '../../index.html';
       });
     }
+
+    // Lógica para envio (Será conectada ao Back-end depois)
+    const form = document.getElementById('formCadastrarAgencia');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Pronto para enviar para o banco de dados!');
+    });
   </script>
 </body>
 </html>

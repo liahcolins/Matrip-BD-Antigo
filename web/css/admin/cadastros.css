@@ -1,0 +1,55 @@
+/* Container dos Cards */
+.cadastros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilo do Card Individual */
+.card-cadastro {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: #023847; /* Seu azul escuro */
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.card-cadastro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(17, 197, 182, 0.2); /* Sombra turquesa suave */
+    border-color: #11c5b6;
+}
+
+/* Ícone dentro do Card */
+.card-icon {
+    background: #11c5b6; /* Turquesa Admin */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon .material-symbols-outlined {
+    font-size: 32px;
+}
+
+.card-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}

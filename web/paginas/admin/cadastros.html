@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gerenciar Passeios | Matrip Admin</title>
+  <title>Central de Cadastros | Matrip Admin</title>
 
+  <link rel="stylesheet" href="../../css/admin/cadastros.css">
   <link rel="stylesheet" href="../../css/parceiro/layout.css" />
   <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
-  <link rel="stylesheet" href="../../css/parceiro/meus-passeios.css" />
   <link rel="stylesheet" href="../../css/admin/index.css" />
-  <link rel="stylesheet" href="../../css/admin/gerenciar-passeios.css" />
-  <link rel="stylesheet" href="../../css/admin/tabelas-gestao.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
@@ -50,7 +48,7 @@
           <span class="material-symbols-outlined">explore</span>
           <span>Gerenciar Guias</span>
         </a>
-        <a href="gerenciar-passeios.html" class="menu-item active">
+        <a href="gerenciar-passeios.html" class="menu-item">
           <span class="material-symbols-outlined">luggage</span>
           <span>Gerenciar Passeios</span>
         </a>
@@ -58,8 +56,8 @@
           <span class="material-symbols-outlined">domain</span>
           <span>Gerenciar Agências</span>
         </a>
-        <a href="cadastros.html" class="menu-item">
-          <span class="material-symbols-outlined">add_business</span>
+        <a href="cadastros.html" class="menu-item active">
+          <span class="material-symbols-outlined">add_box</span>
           <span>Cadastros</span>
         </a>
         <a href="financeiro.html" class="menu-item">
@@ -81,88 +79,77 @@
           <strong>Admin logado</strong>
           <small id="adminEmail">admin@matrip.com</small>
         </div>
-        <button class="logout-btn" type="button" id="logoutBtn">Sair</button>
+        <button class="logout-btn" id="logoutBtn">Sair</button>
       </div>
     </aside>
 
     <div class="dashboard-main">
       <header class="topbar">
-        <button class="menu-toggle" id="menuToggle">☰</button>
         <div class="topbar-title">
-          <h1>Gerenciar Passeios</h1>
-          <p>Visualize e controle todos os passeios cadastrados na plataforma Matrip.</p>
+          <h1>Central de Cadastros</h1>
+          <p>Selecione o tipo de registro que deseja adicionar ao sistema.</p>
         </div>
       </header>
 
       <main class="content">
-        <section class="panel">
-          <div class="page-actions">
-            <div class="filters">
-              <div class="filter-group">
-                <label for="filterAgencia">Agência/Guia</label>
-                <select id="filterAgencia">
-                  <option value="">Todas as origens</option>
-                  </select>
-              </div>
-
-              <div class="filter-group">
-                <label for="filterCidade">Cidade</label>
-                <input type="text" id="filterCidade" placeholder="Filtrar por local" />
-              </div>
-
-              <div class="filter-group filter-search">
-                <label for="searchPasseio">Buscar Passeio</label>
-                <div class="search-wrapper">
-                  <input type="text" id="searchPasseio" placeholder="Nome ou descrição...">
-                  <button type="button" id="btnSearch" class="search-btn">
-                    <span class="material-symbols-outlined">search</span>
-                  </button>
-                </div>
-              </div>
-
+        <div class="cadastros-grid">
+          
+          <a href="cadastrar-agencia.html" class="card-cadastro">
+            <div class="card-icon"><span class="material-symbols-outlined">add_business</span></div>
+            <div class="card-info">
+              <h3>Agências</h3>
+              <p>Cadastrar novas agências de turismo parceiras</p>
             </div>
+          </a>
 
-            <div class="action-buttons">
-              <button class="secondary-btn" id="clearFiltersBtn">Limpar</button>
+          <a href="cadastrar-localizacao.html" class="card-cadastro">
+            <div class="card-icon"><span class="material-symbols-outlined">public</span></div>
+            <div class="card-info">
+              <h3>Localização</h3>
+              <p>Gerenciar os estados e municípios atendidos</p>
             </div>
-          </div>
-        </section>
+          </a>
 
-        <section class="metrics-row metrics-grid">
-          <div class="info-card">
-            <h3>Total de passeios</h3>
-            <p class="card-number" id="metricTotal">0</p>
-            <span>ativos no site</span>
-          </div>
+          <a href="cadastrar-lingua.html" class="card-cadastro">
+            <div class="card-icon"><span class="material-symbols-outlined">translate</span></div>
+            <div class="card-info">
+              <h3>Idiomas</h3>
+              <p>Adicionar as línguas faladas pelos guias no sistema</p>
+            </div>
+          </a>
 
-          <div class="info-card">
-            <h3>Preço Médio</h3>
-            <p class="card-number" id="metricPrecoMedio">R$ 0,00</p>
-            <span>no Maranhão</span>
-          </div>
+          <a href="cadastrar-categoria.html" class="card-cadastro">
+            <div class="card-icon"><span class="material-symbols-outlined">category</span></div>
+            <div class="card-info">
+              <h3>Categorias</h3>
+              <p>Definir os tipos de passeios (Aventura, Histórico, etc.)</p>
+            </div>
+          </a>
 
-          <div class="info-card">
-            <h3>Aprovações</h3>
-            <p class="card-number" id="metricPendentes">0</p>
-            <span>novos hoje</span>
-          </div>
-        </section>
-
-        <div id="messageBox" class="message-box hidden"></div>
-
-        <section class="passeios-list" id="passeiosList">
-        </section>
-
-        <section class="panel empty-state hidden" id="emptyState">
-          <h2>Nenhum passeio encontrado</h2>
-          <p>Tente ajustar os filtros ou verifique a conexão com o banco.</p>
-        </section>
+        </div>
       </main>
     </div>
   </div>
 
   <script src="../../js/parceiro/sidebar.js"></script>
-  <script src="../../js/admin/gerenciar-passeios.js"></script>
-</body>
+  <script>
+    // Script de Proteção de Admin e Logout
+    document.addEventListener('DOMContentLoaded', () => {
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      if (!usuario || usuario.tipo !== 'admin') {
+        window.location.href = '../login1.html';
+      }
+      const emailSidebar = document.getElementById('adminEmail');
+      if (emailSidebar) emailSidebar.textContent = usuario.email;
+    });
+
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('usuario');
+        window.location.href = '../../index.html';
+      });
+    }
+  </script>
 </body>
 </html>

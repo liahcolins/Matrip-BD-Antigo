@@ -137,11 +137,24 @@
   margin-bottom: 25px;
 }
 
+/* Atualize este bloco */
 .filters {
-  display: flex;
-  gap: 20px;
-  align-items: flex-end;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    flex: 1; /* ADICIONE ISSO: Faz o grupo de filtros ocupar todo o espaço central */
+}
+
+/* ADICIONE ESTE BLOCO NOVO: Garante que a busca seja a dona do espaço vazio */
+.filter-search {
+    flex: 1; 
+    min-width: 300px; /* Evita que ela fique pequena demais em telas menores */
+}
+
+/* Isso garante que o wrapper da busca use 100% do que o pai (filter-search) deu pra ele */
+.filter-search .search-wrapper {
+    width: 100%;
 }
 
 .filter-group {
@@ -180,4 +193,108 @@
 .secondary-btn:hover {
   background-color: #f1f5f9;
   color: #0f172a;
+}
+
+/* Faz os 3 cards ocuparem a largura total */
+.metrics-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/* Garante que a lupa nova fique centralizada e bonita */
+.search-btn span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Ajuste sutil no empty-state para não ficar "feio" */
+.empty-state.hidden {
+    display: none !important;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #e5e7eb;
+    background: transparent;
+}
+
+/* Ajuste para os botões dentro da barra de ação da agência */
+.action-bar .btn-action {
+    width: auto !important; /* Permite que o botão cresça para caber o texto */
+    padding: 0 15px !important;
+    height: 40px !important;
+    font-size: 14px;
+    font-weight: 600;
+    gap: 8px;
+}
+
+.action-bar .btn-action span {
+    font-size: 20px;
+}
+
+/* Seta da sanfona */
+.arrow-icon {
+    transition: transform 0.3s ease;
+    color: #023847;
+}
+
+/* Faz a barra de busca ocupar o espaço sobrando */
+.filter-group.grow {
+    flex: 1; /* Isso faz ela esticar até encontrar os botões da direita */
+}
+
+/* Garante que o input interno acompanhe o crescimento */
+.search-wrapper {
+    width: 100%;
+}
+
+/* Ajuste do botão Limpar para ficar com as bordas perfeitas e mesma altura */
+#clearFiltersBtn {
+    height: 45px !important;
+    padding: 0 25px !important;
+    border-radius: 12px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* Não deixa o texto quebrar */
+}
+
+/* Garante que o container pai distribua os blocos corretamente */
+.page-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+/* Padronização do Select de Status */
+.filter-group select {
+    height: 45px !important;
+    padding: 0 15px !important;
+    border-radius: 12px !important; /* Aqui está o arredondamento mágico */
+    border: 1px solid #e5e7eb !important; /* Borda cinza suave igual ao da busca */
+    background-color: #ffffff !important;
+    color: #023847;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none; /* Remove o estilo padrão do sistema (iOS/Android) */
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23023847' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 40px !important; /* Espaço para a setinha nova */
+    transition: border-color 0.2s;
+}
+
+.filter-group select:focus {
+    border-color: #11c5b6 !important; /* Fica turquesa quando clica */
 }

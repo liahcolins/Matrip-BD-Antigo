@@ -128,3 +128,70 @@
 .search-btn:hover {
   background-color: #0fa99b;
 }
+
+/* Correção do espaço à direita (Grid de 3 colunas) */
+.metrics-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divide em 3 partes iguais */
+    gap: 20px;
+    width: 100%;
+}
+
+/* Alinhamento dos Filtros */
+.filters-container {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.filter-group {
+    flex: 1;
+}
+
+.filter-search {
+    flex: 2; /* Campo de busca maior que os outros */
+}
+
+/* Estilo da nova Lupa Material */
+.search-btn span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Estilo do ícone de Localização Padronizado */
+.location-tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #64748b;
+}
+
+.location-tag span.material-symbols-outlined {
+    color: #ef4444; /* Vermelho do pin */
+    font-size: 18px;
+    font-variation-settings: 'FILL' 1;
+}
+
+/* Preço em destaque */
+.price-tag {
+    color: #11c5b6;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: right;
+}
+
+/* Estilo do botão Limpar */
+.btn-clear {
+    height: 45px;
+    padding: 0 20px;
+    border-radius: 12px;
+}
+
+/* Estilo para o ícone de localização que o JS vai injetar */
+.location-icon {
+    color: #ef4444; /* Cor do pin */
+    font-size: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+    font-variation-settings: 'FILL' 1;
+}

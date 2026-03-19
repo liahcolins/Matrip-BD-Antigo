@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../../css/parceiro/layout.css" />
   <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
   <link rel="stylesheet" href="../../css/admin/index.css" />
+  <link rel="stylesheet" href="../../css/admin/tabelas-gestao.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
@@ -55,9 +56,9 @@
           <span class="material-symbols-outlined">domain</span>
           <span>Gerenciar Agências</span>
         </a>
-        <a href="cadastrar-agencias.html" class="menu-item">
+        <a href="cadastros.html" class="menu-item">
           <span class="material-symbols-outlined">add_business</span>
-          <span>Cadastrar Agências</span>
+          <span>Cadastros</span>
         </a>
         <a href="financeiro.html" class="menu-item">
           <span class="material-symbols-outlined">payments</span>
@@ -84,7 +85,6 @@
 
     <div class="dashboard-main">
       <header class="topbar">
-        <button class="menu-toggle" id="menuToggle">☰</button>
         <div class="topbar-title">
           <h1>Gerenciamento de Guias</h1>
           <p>Acompanhe os guias cadastrados, verifique MEI e gerencie o status de atuação.</p>
@@ -131,19 +131,24 @@
                 <option value="suspenso">Suspensos</option>
               </select>
             </div>
+
+            <button class="btn-export">
+              <span class="material-symbols-outlined">download</span>
+              Exportar Lista
+            </button>
           </div>
         </section>
 
         <section class="panel">
           <div class="summary-table-wrapper">
-            <table class="summary-table">
+            <table class="admin-table">
               <thead>
                 <tr>
                   <th>Guia / Profissional</th>
                   <th>MEI / Documento</th>
                   <th>Contato</th>
                   <th>Status</th>
-                  <th>Ações</th>
+                  <th style="width: 120px;">Ações</th>
                 </tr>
               </thead>
               <tbody id="guiasTableBody">
@@ -158,9 +163,15 @@
                     <small>(98) 99122-3344</small>
                   </td>
                   <td><span class="status-badge active">Ativo</span></td>
-                  <td style="display: flex; gap: 8px;">
-                    <button class="primary-btn" style="padding: 8px; border-radius: 8px;" title="Ver Passeios">📂</button>
-                    <button class="secondary-btn" style="padding: 8px; border-radius: 8px;" title="Suspender">⚠️</button>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn-action btn-view" title="Ver Passeios">
+                        <span class="material-symbols-outlined">folder</span>
+                      </button>
+                      <button class="btn-action btn-block" title="Suspender">
+                        <span class="material-symbols-outlined">warning</span>
+                      </button>
+                    </div>
                   </td>
                 </tr>
                 <tr>
@@ -173,10 +184,16 @@
                     ana.turismo@email.com<br>
                     <small>(98) 98777-6655</small>
                   </td>
-                  <td><span class="status-badge inactive" style="background:#fef3c7; color:#92400e;">Pendente</span></td>
-                  <td style="display: flex; gap: 8px;">
-                    <button class="primary-btn" style="padding: 8px; border-radius: 8px; background:#10b981; border-color:#059669;" title="Aprovar">✅</button>
-                    <button class="secondary-btn" style="padding: 8px; border-radius: 8px;" title="Excluir">🗑️</button>
+                  <td><span class="status-badge pending">Pendente</span></td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn-action btn-unblock" title="Aprovar">
+                        <span class="material-symbols-outlined">check_circle</span>
+                      </button>
+                      <button class="btn-action btn-block" title="Excluir" style="background: #fee2e2; color: #b91c1c;">
+                        <span class="material-symbols-outlined">delete</span>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -188,24 +205,5 @@
   </div>
 
   <script src="../../js/parceiro/sidebar.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const usuario = JSON.parse(localStorage.getItem('usuario'));
-      if (!usuario || usuario.tipo !== 'admin') {
-        window.location.href = '../login1.html';
-        return;
-      }
-      const emailSidebar = document.getElementById('adminEmail');
-      if (emailSidebar) emailSidebar.textContent = usuario.email;
-    });
-
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-      logoutBtn.addEventListener('click', () => {
-        localStorage.removeItem('usuario');
-        window.location.href = '../../index.html';
-      });
-    }
-  </script>
 </body>
 </html>

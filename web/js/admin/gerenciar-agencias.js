@@ -15,16 +15,17 @@ function updateMetrics() {
 }
 
 // Renderiza a lista sanfona
+// Renderiza a lista sanfona
 function renderAgencias(data) {
   const listContainer = document.getElementById("agenciasList");
   const emptyState = document.getElementById("emptyState");
   listContainer.innerHTML = "";
 
-  if (!data.length) {
+  // Correção da lógica do Empty State
+  if (!data || data.length === 0) {
     emptyState.classList.remove("hidden");
     return;
   }
-
   emptyState.classList.add("hidden");
 
   data.forEach(ag => {
@@ -32,17 +33,25 @@ function renderAgencias(data) {
     item.className = "list-item";
     item.id = `agencia-${ag.id}`;
 
-    // Define qual botão mostrar baseado no status
+    // PADRONIZAÇÃO DOS BOTÕES (Usando Material Symbols)
     let botoesAcao = '';
     if(ag.status === 'pendente') {
       botoesAcao = `
-        <button class="primary-btn btn-approve" onclick="alterarStatus(${ag.id}, 'ativo')">✅ Aprovar Agência</button>
-        <button class="primary-btn btn-reject" onclick="alterarStatus(${ag.id}, 'rejeitado')">❌ Rejeitar</button>
+        <button class="btn-action btn-unblock" onclick="alterarStatus(${ag.id}, 'ativo')" title="Aprovar">
+          <span class="material-symbols-outlined">check_circle</span> Aprovar Agência
+        </button>
+        <button class="btn-action btn-block" onclick="alterarStatus(${ag.id}, 'rejeitado')" title="Rejeitar">
+          <span class="material-symbols-outlined">cancel</span> Rejeitar
+        </button>
       `;
     } else {
       botoesAcao = `
-        <button class="primary-btn" onclick="alert('Indo para edição da agência ${ag.id}')">Editar Cadastro</button>
-        <button class="primary-btn btn-reject" onclick="alterarStatus(${ag.id}, 'bloqueado')">Bloquear Acesso</button>
+        <button class="btn-action btn-edit" onclick="alert('Editando ${ag.id}')">
+          <span class="material-symbols-outlined">edit</span> Editar Cadastro
+        </button>
+        <button class="btn-action btn-block" onclick="alterarStatus(${ag.id}, 'bloqueado')">
+          <span class="material-symbols-outlined">block</span> Bloquear Acesso
+        </button>
       `;
     }
 
@@ -57,8 +66,10 @@ function renderAgencias(data) {
           <span style="display:block; font-size: 14px;">${ag.email}</span>
           <small>${ag.telefone}</small>
         </div>
-        <div class="status-badge ${ag.status}">${ag.status}</div>
-        <span class="arrow-icon">▼</span>
+        <div>
+           <span class="status-badge ${ag.status}">${ag.status}</span>
+        </div>
+        <span class="material-symbols-outlined arrow-icon">expand_more</span>
       </div>
 
       <div class="list-item-details">
@@ -75,7 +86,7 @@ function renderAgencias(data) {
             <p><strong>Telefone:</strong> ${ag.telefone}</p>
           </div>
         </div>
-        <div class="action-bar">
+        <div class="action-bar" style="display: flex; gap: 10px;">
           ${botoesAcao}
         </div>
       </div>
@@ -91,12 +102,12 @@ function toggleAgencia(id) {
   document.querySelectorAll('.list-item').forEach(item => {
     item.classList.remove('active');
     const icon = item.querySelector('.arrow-icon');
-    if(icon) icon.textContent = '▼';
+    if(icon) icon.textContent = 'expand_more'; // Volta ícone padrão
   });
 
   if (!isOpen) {
     el.classList.add('active');
-    el.querySelector('.arrow-icon').textContent = '▲';
+    el.querySelector('.arrow-icon').textContent = 'expand_less'; // Ícone pra cima
   }
 }
 

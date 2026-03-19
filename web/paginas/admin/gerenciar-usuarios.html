@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../../css/parceiro/layout.css" />
   <link rel="stylesheet" href="../../css/parceiro/sidebar.css" />
   <link rel="stylesheet" href="../../css/admin/index.css" />
+  <link rel="stylesheet" href="../../css/admin/tabelas-gestao.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
@@ -55,9 +56,9 @@
           <span class="material-symbols-outlined">domain</span>
           <span>Gerenciar Agências</span>
         </a>
-        <a href="cadastrar-agencias.html" class="menu-item">
+        <a href="cadastros.html" class="menu-item">
           <span class="material-symbols-outlined">add_business</span>
-          <span>Cadastrar Agências</span>
+          <span>Cadastros</span>
         </a>
         <a href="financeiro.html" class="menu-item">
           <span class="material-symbols-outlined">payments</span>
@@ -130,53 +131,68 @@
                 <option value="bloqueado">Bloqueados</option>
               </select>
             </div>
-            <button class="secondary-btn" style="height:46px;">Exportar Lista</button>
+            <button class="secondary-btn btn-export">
+              <span class="material-symbols-outlined">download</span>
+              Exportar Lista
+            </button>
           </div>
         </section>
 
         <section class="panel">
-          <div class="summary-table-wrapper">
-            <table class="summary-table">
+          <div class="table-wrapper">
+            <table class="admin-table">
               <thead>
                 <tr>
                   <th>Nome do Usuário</th>
                   <th>Contato</th>
                   <th>Desde</th>
                   <th>Status</th>
-                  <th>Ações</th>
+                  <th style="width: 120px;">Ações</th>
                 </tr>
               </thead>
               <tbody id="usersTableBody">
                 <tr>
                   <td>
-                    <strong>Liah Collins</strong><br>
-                    <small style="color:var(--color-text-soft)">ID: #1250</small>
+                    <strong>Liah Colins</strong><br>
+                    <small class="text-soft">ID: #1250</small>
                   </td>
                   <td>
-                    liah@email.com<br>
+                    liahcolins@gmail.com<br>
                     <small>(98) 98888-7777</small>
                   </td>
                   <td>12/03/2026</td>
                   <td><span class="status-badge active">Ativo</span></td>
-                  <td style="display: flex; gap: 8px;">
-                    <button class="primary-btn" style="padding: 8px; border-radius: 8px;" title="Editar">✏️</button>
-                    <button class="secondary-btn" style="padding: 8px; border-radius: 8px;" title="Bloquear">🚫</button>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn-action btn-edit" title="Editar">
+                        <span class="material-symbols-outlined">edit</span>
+                      </button>
+                      <button class="btn-action btn-block" title="Bloquear">
+                        <span class="material-symbols-outlined">block</span>
+                      </button>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <strong>Fulano de Tal</strong><br>
-                    <small style="color:var(--color-text-soft)">ID: #1249</small>
+                    <strong>Gustavo Ribeiro</strong><br>
+                    <small class="text-soft">ID: #1249</small>
                   </td>
                   <td>
-                    fulano@gmail.com<br>
+                    gus.ribeiro@gmail.com<br>
                     <small>(98) 91111-2222</small>
                   </td>
                   <td>10/03/2026</td>
-                  <td><span class="status-badge inactive" style="background:#fee2e2; color:#b91c1c;">Bloqueado</span></td>
-                  <td style="display: flex; gap: 8px;">
-                    <button class="primary-btn" style="padding: 8px; border-radius: 8px;">✏️</button>
-                    <button class="secondary-btn" style="padding: 8px; border-radius: 8px; background:#dcfce7; color:#15803d; border-color:#bbf7d0;">✔️</button>
+                  <td><span class="status-badge blocked">Bloqueado</span></td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="btn-action btn-edit" title="Editar">
+                        <span class="material-symbols-outlined">edit</span>
+                      </button>
+                      <button class="btn-action btn-unblock" title="Desbloquear">
+                        <span class="material-symbols-outlined">check_circle</span>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               </tbody>

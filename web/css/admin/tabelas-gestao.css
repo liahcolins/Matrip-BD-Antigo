@@ -1,0 +1,84 @@
+/* css/admin/tabelas-gestao.css */
+
+/* Container que permite scroll no celular sem quebrar o layout */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 12px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* Garante que as colunas não fiquem espremidas */
+}
+
+.admin-table th {
+    background: #f8fafc;
+    color: #023847;
+    font-weight: 700;
+    text-align: left;
+    padding: 16px;
+    border-bottom: 2px solid #11c5b6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+    color: #334155;
+    font-size: 14px;
+}
+
+/* Alinhamento dos botões de ação */
+.table-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Botões de Ação Padronizados */
+/* Isso remove qualquer estilo padrão que esteja vindo de outros arquivos */
+.btn-action {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important; /* Remove paddings extras */
+    border: none !important; /* Mata a borda preta */
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent; /* Valor padrão que será sobrescrito */
+}
+
+/* Garante que o ícone do Google não herde cores estranhas */
+.btn-action span {
+    font-size: 20px !important;
+    line-height: 1;
+}
+
+/* Cores específicas (Ajuste conforme sua preferência) */
+.btn-edit { background-color: #11c5b6 !important; color: white !important; }
+.btn-block { background-color: #fee2e2 !important; color: #ef4444 !important; }
+.btn-unblock { background-color: #dcfce7 !important; color: #22c55e !important; }
+.btn-view { background-color: #e0f2fe !important; color: #0ea5e9 !important; }
+
+/* Texto auxiliar soft */
+.text-soft { color: #94a3b8; font-size: 12px; }
+
+/* Badges de Status */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status-badge.active { background: #dcfce7; color: #15803d; }
+.status-badge.pending { background: #fef3c7; color: #b45309; }
+.status-badge.blocked { background: #fee2e2; color: #b91c1c; }

@@ -89,7 +89,10 @@ function renderPasseios(data) {
           <h4>${p.local}</h4>
           <small>${p.categoria || 'Geral'}</small>
         </div>
-        <span>📍 ${p.cidade || '--'}</span>
+        <span class="location-tag">
+            <span class="material-symbols-outlined location-icon">location_on</span>
+            ${p.cidade || '--'} 
+        </span>
         <strong style="color: #11c5b6">${formatCurrency(p.valor_final)}</strong>
         <span class="arrow-icon">▼</span>
       </div>
